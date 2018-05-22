@@ -6,7 +6,6 @@ use strict;
 
 # set the number of candidate based on the expression level (emPAI)
 my $cand = 1000;
-my $shift = "-2";
 
 # load the candidate
 my $ge; my %can; my $count = 0;
@@ -15,7 +14,7 @@ while (<can1>)     {
 	next if /^name/;
 	last if $count > $cand;
 	chomp;
-	my @a = split /,/;
+	my @a = split /,|\t/;
 	$can{$a[0]} = $a[2];
 	$count++;      }
 close can1;
